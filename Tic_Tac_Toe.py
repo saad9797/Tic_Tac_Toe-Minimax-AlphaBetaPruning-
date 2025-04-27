@@ -9,7 +9,6 @@ class TicTacToe:
         self.alphabeta_nodes = 0
 
     def print_board(self):
-        """Print the current board state with borders"""
         print("-------------")
         for row in self.board:
             print("|", end=" ")
@@ -18,7 +17,6 @@ class TicTacToe:
             print("\n-------------")
 
     def make_move(self, row, col):
-        """Make a move on the board"""
         # Check if the position is valid and empty
         if 0 <= row < 3 and 0 <= col < 3 and self.board[row][col] == ' ':
             self.board[row][col] = self.current_player
@@ -28,7 +26,6 @@ class TicTacToe:
         return False
 
     def switch_player(self):
-        """Switch between X and O players"""
         self.current_player = 'O' if self.current_player == 'X' else 'X'
 
     def check_winner(self, row, col):
@@ -53,22 +50,18 @@ class TicTacToe:
             return
 
     def is_board_full(self):
-        """Check if the board is full (tie)"""
         for row in self.board:
             if ' ' in row:
                 return False
         return True
 
     def is_game_over(self):
-        """Check if the game has ended"""
         return self.winner is not None or self.is_board_full()
 
     def get_empty_cells(self):
-        """Return list of (row,col) for empty cells"""
         return [(r, c) for r in range(3) for c in range(3) if self.board[r][c] == ' ']
 
     def minimax(self, is_maximizing):
-        """Original minimax algorithm (unchanged)"""
         self.minimax_nodes += 1  # Count node evaluation
         # Base cases - return score if game over
         if self.winner == 'X': return 1   # AI wins
@@ -101,7 +94,6 @@ class TicTacToe:
             return best_score
 
     def find_best_move(self):
-        """Find the best move for the AI using minimax (unchanged)"""
         best_score = -1000
         best_move = None
         
@@ -123,7 +115,6 @@ class TicTacToe:
         return best_move
 
     def alphabeta(self, is_maximizing, alpha, beta):
-        """Alpha-beta pruning algorithm"""
         self.alphabeta_nodes += 1  # Count node evaluation
         # Base cases - return score if game over
         if self.winner == 'X': return 1   # AI wins
@@ -166,7 +157,6 @@ class TicTacToe:
             return best_score
 
     def find_best_move_alphabeta(self):
-        """Find the best move for the AI using alpha-beta pruning"""
         best_score = -1000
         best_move = None
         
@@ -188,7 +178,6 @@ class TicTacToe:
         return best_move
 
 def play_game(use_alphabeta=False):
-    """Play a game of Tic-Tac-Toe, comparing minimax and alpha-beta pruning"""
     game = TicTacToe()
     # Initialize cumulative node counters
     total_minimax_nodes = 0
