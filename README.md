@@ -73,3 +73,6 @@ The program allows you to play against the AI and compares the performance of th
 - Both algorithms always choose the same optimal moves - pruning doesn't affect move quality
 
 Enjoy playing Tic-Tac-Toe against an unbeatable AI opponent!
+
+## Demo Video
+https://youtu.be/KALSHJ3SguY
