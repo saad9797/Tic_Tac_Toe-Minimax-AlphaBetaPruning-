@@ -75,4 +75,4 @@ The program allows you to play against the AI and compares the performance of th
 Enjoy playing Tic-Tac-Toe against an unbeatable AI opponent!
 
 ## Demo Video
-https://youtu.be/KALSHJ3SguY
+https://youtu.be/64gidCFt0aQ
